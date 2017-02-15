@@ -15,7 +15,7 @@ module.exports = {
 			}
 			if (match.length > 0) {
 				//See http://sailsjs.com/documentation/reference/web-sockets/resourceful-pub-sub/subscribe
-				Match.subscribe(req, _.pluck(match, 'id'));
+				Match.subscribe(req, match);
 				return res.json(match[0]);
 			}else{
 				return res.json(401, {err: 'No Match exist'})
