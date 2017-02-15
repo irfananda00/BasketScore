@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'digital7';
+  src: url('digital-7.ttf')  format('truetype'),
+}
+
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+
+body {
+    font-family: 'Teko', Verdana, Tahoma;
+    background-color: #272827;
+}
+
+.fulllah {
+   width: 100%;
+   padding: 0;
+   margin: 0;
+}
+
+.navbar-brand {
+  float: none;
+  }
+
+.navbar-center
+{
+   position: absolute;
+   width: 100%;
+   left: 0;
+   top: 0;
+   text-align: center;
+   margin: 0 auto;
+   height:100%;
+   color: #fff;
+}
+
+.navbarlah {
+   background-color: #000;
+   min-height: 70px;
+   border: none;
+}
+
+.judulyoo{
+   font-size: 50px;
+   margin: 0 auto;
+}
+
+.skoryoo {
+   text-align: center;
+   min-height: 280px;
+   background-color: #000;
+   color: #f60e0e;
+   border-radius: 5px;
+}
+
+.skoryoo2{
+   font-size: 360px;
+   margin: 0 auto;
+   padding-bottom: -20px;
+   margin-bottom: -30px;
+   line-height: 1.1;
+   vertical-align: text-bottom;
+}
+
+.skor-left {
+   border-right: 5px solid #333;
+}
+
+.team-home{
+   color: #e0c704;
+   font-size: 100px;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+.match-time {
+   text-align: center;
+   color: #f60e0e;
+   position: absolute;
+    left: 0px;
+    bottom: 0px;
+    font-size: 100px;
+    line-height: 1.2;
+
+}
+
+.bg-time {
+   background-color: #000;
+   height: 100px;
+   bottom: 20px
+}
