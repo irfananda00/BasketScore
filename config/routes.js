@@ -37,10 +37,7 @@ module.exports.routes = {
   // },
 
   'post /match': 'MatchController.init',
-  'delete /match': 'MatchController.reset',
   'get /match': 'MatchController.show',
-  'put /match': 'MatchController.score',
-  'get /match/getSocket': 'MatchController.getSocket',
 
   /***************************************************************************
   *                                                                          *

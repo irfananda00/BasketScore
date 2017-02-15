@@ -3,16 +3,8 @@
 
   angular.module('Basket', []).controller('ScoreController', function($scope,$http){
 
-    // $scope.getScore = function(){
-    //   io.socket.get('/match/getSocket');
-    //
-    //   $http.get('/match').then(function(res){
-    //     console.log(res.data);
-    //     $scope.match = res.data;
-    //   });
-    // };
-    //
-    // $scope.getScore();
+    // For socket client explanation
+    // See http://sailsjs.com/documentation/reference/web-sockets/socket-client
 
     io.socket.get('/match', function(data){
       console.log('get socket');
@@ -20,7 +12,7 @@
       $scope.$apply();
     });
 
-    io.socket.on('Match', function(event){
+    io.socket.on('match', function(event) {
       console.log(event);
       switch (event.verb) {
         case 'created':
