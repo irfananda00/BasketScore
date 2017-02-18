@@ -23,8 +23,8 @@ module.exports = {
 		});
 	},
 
-	// POST to initialize/edit a match
-	init: function(req, res){
+	// POST start the match
+	start: function(req, res){
 		Match.count({}).exec(function countMatch(err, found){
 			if(found>0){
 				Match.update({},{
@@ -32,7 +32,8 @@ module.exports = {
 					home_name: req.body.home_name,
 					home_score: req.body.home_score,
 					away_name: req.body.away_name,
-					away_score: req.body.away_score
+					away_score: req.body.away_score,
+					time: req.body.time
 				}).exec(function(err, match){
 					if (err) {
 						return res.json(err.status, {err: err});
@@ -44,7 +45,40 @@ module.exports = {
 							home_name: req.body.home_name,
 							home_score: req.body.home_score,
 							away_name: req.body.away_name,
-							away_score: req.body.away_score
+							away_score: req.body.away_score,
+							time: req.body.time
+						});
+						return res.json(match[0]);
+					}
+				});
+			}else{
+				return res.json(401, {err: "No match exist"});
+			}
+		});
+	},
+
+	// POST to initialize/edit a match
+	init: function(req, res){
+		Match.count({}).exec(function countMatch(err, found){
+			if(found>0){
+				Match.update({},{
+					name: req.body.name,
+					home_name: req.body.home_name,
+					home_score: req.body.home_score,
+					away_name: req.body.away_name,
+					away_score: req.body.away_score,
+				}).exec(function(err, match){
+					if (err) {
+						return res.json(err.status, {err: err});
+					}
+					if (match) {
+						//See http://sailsjs.com/documentation/reference/web-sockets/resourceful-pub-sub/publish-update
+						Match.publishUpdate(match[0].id,{
+							name: req.body.name,
+							home_name: req.body.home_name,
+							home_score: req.body.home_score,
+							away_name: req.body.away_name,
+							away_score: req.body.away_score,
 						});
 						return res.json(match[0]);
 					}
@@ -55,7 +89,8 @@ module.exports = {
 					home_name: req.body.home_name,
 					home_score: req.body.home_score,
 					away_name: req.body.away_name,
-					away_score: req.body.away_score
+					away_score: req.body.away_score,
+					time: 0
 				}).exec(function(err, match){
 					if (err) {
 						return res.json(err.status, {err: err});

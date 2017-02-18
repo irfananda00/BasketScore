@@ -23,6 +23,9 @@
         case 'updated':
           console.log('updated');
           $scope.match = event.data;
+          if (event.data.time != 0) {
+            
+          }
           $scope.$apply();
           break;
         default:

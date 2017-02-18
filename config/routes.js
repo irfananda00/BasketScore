@@ -37,6 +37,7 @@ module.exports.routes = {
   // },
 
   'post /match': 'MatchController.init',
+  'post /match/start': 'MatchController.start',
   'get /match': 'MatchController.show',
 
   /***************************************************************************

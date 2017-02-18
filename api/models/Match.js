@@ -28,5 +28,8 @@ module.exports = {
       type:'integer',
       required: true
     },
+    time: {
+      type:'integer',
+    },
   }
 };
